@@ -1,0 +1,23 @@
+<%= form_with model: post, local: true do |form| %> <% if post.errors.any? %>
+<div id="error_explanation">
+  <h2>題名または内容が空白になっています。</h2>
+</div>
+<% else %>
+<div id="explanation">
+  <h2>題名とお内容を記入してください</h2>
+  <p>※空白だと投稿できません</p>
+</div>
+<% end %>
+
+<p>
+  <%= form.label :title, "題名(20文字以内)" %><br />
+  <%= form.text_field :title %>
+</p>
+
+<p>
+  <%= form.label :content, "内容(100文字以内)" %><br />
+  <%= form.text_area :content %>
+</p>
+
+<p><%= form.submit "投稿を作成" %></p>
+<% end %>

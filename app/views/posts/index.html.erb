@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>投稿一覧</h2>
+  <% @posts.each do |post| %>
+  <div class="posts-index-item">
+    <%= link_to post.content, post_path(post) %>
+  </div>
+  <% end %>
+
+  <h2>新規投稿</h2>
+  <%= render 'form', post: @post, data: { turbo: false } %>
+</div>

@@ -1,0 +1,26 @@
+<h2>会員登録</h2>
+
+<%= form_with model: @user, local: true do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %>が発生しました:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name, "名前" %><br />
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :password, "パスワード" %><br />
+    <%= form.password_field :password %>
+  </p>
+
+  <p><%= form.submit "登録する" %></p>
+<% end %>
